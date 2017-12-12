@@ -6,8 +6,9 @@ import os
 os.system("qmake && make")
 os.remove("Makefile")
 for each in os.listdir("./"):
-	if str(each).endswith(".o"):
+	if str(each).endswith(".o") or each == ".qmake.stash":
 		os.remove(each)
+
 print("\n")
 print("\n")
 os.system("./Server")
