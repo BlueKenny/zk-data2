@@ -1,0 +1,18 @@
+#!/usr/bin/env python3
+import os
+#echo "g++"
+#g++ -o c c.cpp -lboost_system && ./c DEBUGING
+#g++ -o Server Server.cpp BlueString.cpp BlueFunc.cpp BlueDir.cpp BlueInt.cpp BlueDays.cpp -lboost_system && ./Server
+os.system("qmake && make")
+os.remove("Makefile")
+for each in os.listdir("./"):
+	if str(each).endswith(".o"):
+		os.remove(each)
+print("\n")
+print("\n")
+os.system("./Server")
+
+
+#echo "\n\n"
+#echo "i686-w64-mingw32-g++"
+#i686-w64-mingw32-g++ -o Server.exe Server.cpp
