@@ -1,5 +1,3 @@
-//#include <boost/filesystem.hpp>
-
 #include <string>
 using namespace std;
 
@@ -7,21 +5,28 @@ using namespace std;
 #include <sys/types.h>
 
 #include <iostream>
-extern bool PathExists(std::string directory){/*
-	boost::filesystem::path DIR (directory);
-	
-	if (boost::filesystem::exists(DIR)) {
+
+#include <dirent.h> 
+#include <stdio.h> 
+
+struct stat st;
+
+extern bool PathExists(std::string directory){
+	if (stat(directory.c_str(),&st) == 0) {
 		return true;
 	 }
-	else {*/
-		return false;/*
-	}*/
+	else {
+		return false;
+	}
 	
 }
 
 extern void MkDir(std::string directory){ // MkDir if not exists
-	cout << "mkdir \"" << directory << "\"" << endl;
-
+	if (!PathExists(directory)){
+		mkdir(directory.c_str(), 0777);
+		cout << "mkdir \"" << directory << "\"" << endl;
+	}
+	
 	//int status;
 	//status = mkdir(directory, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 
@@ -34,6 +39,24 @@ extern void MkDir(std::string directory){ // MkDir if not exists
 	else {
 		cout << "no" << endl;
 	}*/
+	return;
+}
+extern void ListDir(std::string directory){
+	//cout << "mkdir" << endl;
+
+	DIR           *d;
+	struct dirent *dir;
+	
+	d = opendir(directory.c_str());
+	if (d){
+		while ((dir = readdir(d)) != NULL){
+			string DIRNAME = dir ->d_name; 
+			// HIER geht es weiter ?
+			
+		}
+		closedir(d);
+	}
+
 	return;
 }
 

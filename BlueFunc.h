@@ -3,7 +3,7 @@
 #define BLUEFUNC_H
  
 // This is the content of the .h file, which is where the declarations go
-void BlueLoad(); // function prototype for add.h -- don't forget the semicolon!
+std::string BlueLoad(std::string VarName, std::string File); // function prototype for add.h -- don't forget the semicolon!
  
 // This is the end of the header guard
 #endif

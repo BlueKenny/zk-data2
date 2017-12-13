@@ -1,14 +1,42 @@
 #include <string>
+#include "BlueDir.h"
 
-extern void BlueLoad(){
-	return;
+#include <iostream>
+//#include <iterator>
+#include <fstream>
+#include <vector>
+//#include <algorithm>
+
+std::string SplitIt = "&zKz&";
+
+extern std::string BlueLoad(std::string VarName, std::string FileDir){
+	std::string output;
+
+	if (PathExists(FileDir)){
+		std::ifstream filestream(FileDir);
+		std::string line;
+		
+
+		while(std::getline(filestream, line))
+		{
+			//std::cout << "Read this line : " << line << std::endl;
+			if (line.find(VarName + SplitIt) != std::string::npos && line.find(VarName + SplitIt) == 0){// if [VarName + "&zKz&"] in line AND startswith it
+				std::string output = line.erase(0, VarName.length() + SplitIt.length());
+				return output;
+			}
+		}
+	}
+	else {
+		return "None";
+	}
+	return output;
 }
 
 /*
 
 SplitIt = "&zKz&"
 def BlueLoad(VarName, File):
-	if os.path.exists(File): 
+	if os.path.exists(File): //
 		Datei = open(File, "r", errors="ignore")
 		DateiDatenIndex = Datei.readlines()
 		Datei.close()

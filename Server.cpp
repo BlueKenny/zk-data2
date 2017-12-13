@@ -1,5 +1,5 @@
 #include <string>
-using namespace std;
+#include <vector>
 
 #include "BlueString.h"
 #include "BlueInt.h"
@@ -9,20 +9,40 @@ using namespace std;
 
 
 int main(){
-	Debug("\n");
 	Debug(Date());
 	Debug("ZK-DATA SERVER");
 
 	// Ordner
 	std::string DIR = "";
-	if(PathExists("/home/phablet")){ DIR = "/home/phablet/.local/share/zk-data.bluekenny/";}
-	MkDir(DIR);
+	if(PathExists("/home/phablet")){ 
+		DIR = "/home/phablet/.local/share/zk-data.bluekenny/";
+		MkDir(DIR);
+	}
 	MkDir(DIR + "Stock");
 	MkDir(DIR + "StockBewegung");
 	MkDir(DIR + "Kunden");
 
+	Debug("Make Cache");
+	std::vector<std::string> StockBarcodeList(999999);
+
+	//StockBarcodeList[0] = "test0";
+	//StockBarcodeList[1] = "test1";
+
+	//Debug("List0 " + StockBarcodeList[0]);
+	//Debug("List1 " + StockBarcodeList[1]);
+
+	
+	Debug("LOAD Database Stock");
+	int StockArtikelAnzahl = 0;
+	int KundenAnzahl = 0;
+	int NeueKundenID = 10;
+
+	ListDir(DIR + "Stock/");
+	
+
 	return 0;
 }
+
 /*
 
 StockBarcodeList = []
@@ -41,22 +61,8 @@ KundeTelList = []
 KundeAdresseList = []
 KundeOrtList = []
 
-try:
-	INDEXLIMIT = int(BlueLoad("IndexLimit", DIR + "DATA"))
-except:
-	INDEXLIMIT = 20
-	BlueSave("IndexLimit", "20", DIR + "DATA")
 
 Debug("Make Cache")
-if not BlueLoad("CacheLimit", DIR + "DATA") == None:
-	MINCache = int(BlueLoad("CacheLimit", DIR + "DATA").split("-")[0])
-	MAXCache = int(BlueLoad("CacheLimit", DIR + "DATA").split("-")[1])
-else:
-	MINCache = 0
-	MAXCache = 999999
-	BlueSave("CacheLimit", "0-999999", DIR + "DATA")
-Debug("MINCache " + str(MINCache))
-Debug("MAXCache " + str(MAXCache))
 for x in range(MINCache, MAXCache):
 	StockBarcodeList.insert(x, "x")
 	StockArtikelList.insert(x, "x")
