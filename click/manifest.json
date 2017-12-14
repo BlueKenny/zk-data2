@@ -1,0 +1,15 @@
+{
+    "name": "zk-data.bluekenny",
+    "description": " ZK-DATA Click package",
+    "architecture": "@CLICK_ARCH@",
+    "title": "ZK-DATA",
+    "hooks": {
+        "zk-data": {
+            "apparmor": "zk-data.bluekenny.apparmor",
+            "desktop": "zk-data.bluekenny.desktop.in"
+        }
+    },
+    "version": "2017.12.14.0",
+    "maintainer": "Zaunz Kenny <bluez@linuxmail.org>",
+    "framework": "ubuntu-sdk-15.04.6"
+}

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ZK-DATA
+Exec=zk-data.bluekenny
+Icon=icon.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+Name[de_BE]=zk-data.bluekenny.desktop.in

@@ -9,6 +9,8 @@ using namespace std;
 #include <dirent.h> 
 #include <stdio.h> 
 
+#include <vector>
+
 struct stat st;
 
 extern bool PathExists(std::string directory){
@@ -41,8 +43,9 @@ extern void MkDir(std::string directory){ // MkDir if not exists
 	}*/
 	return;
 }
-extern void ListDir(std::string directory){
+extern string ListDir(std::string directory){
 	//cout << "mkdir" << endl;
+	std::string OUTPUT = {};
 
 	DIR           *d;
 	struct dirent *dir;
@@ -50,9 +53,11 @@ extern void ListDir(std::string directory){
 	d = opendir(directory.c_str());
 	if (d){
 		while ((dir = readdir(d)) != NULL){
-			string DIRNAME = dir ->d_name; 
-			// HIER geht es weiter ?
-			
+			string DIRNAME = dir ->d_name;
+			if (DIRNAME != "." and DIRNAME != ".."){
+				//cout << "\"" << DIRNAME << "\"" << endl;
+				list.push_back(DIRNAME);
+			}
 		}
 		closedir(d);
 	}

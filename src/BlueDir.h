@@ -2,11 +2,10 @@
 #ifndef BLUEDIR_H
 #define BLUEDIR_H
 
-
 // This is the content of the .h file, which is where the declarations go
 extern bool PathExists(std::string directory);
 extern void MkDir(std::string directory);
-extern void ListDir(std::string directory);
+extern string ListDir(std::string directory);
  
 // This is the end of the header guard
 #endif
