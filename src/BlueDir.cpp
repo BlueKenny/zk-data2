@@ -43,7 +43,7 @@ extern void MkDir(std::string directory){ // MkDir if not exists
 	}*/
 	return;
 }
-extern string ListDir(std::string directory){
+extern std::string ListDir(std::string directory){
 	//cout << "mkdir" << endl;
 	std::string OUTPUT = {};
 
@@ -53,7 +53,7 @@ extern string ListDir(std::string directory){
 	d = opendir(directory.c_str());
 	if (d){
 		while ((dir = readdir(d)) != NULL){
-			string DIRNAME = dir ->d_name;
+			std::string DIRNAME = dir ->d_name;
 			if (DIRNAME != "." and DIRNAME != ".."){
 				//cout << "\"" << DIRNAME << "\"" << endl;
 				list.push_back(DIRNAME);

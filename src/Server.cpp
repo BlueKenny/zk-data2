@@ -37,12 +37,12 @@ int main(){
 	int KundenAnzahl = 0;
 	int NeueKundenID = 10;
 
-	std::string DirListID = {}; 
-	DirListID = ListDir(DIR + "Stock/");
+	//std::string DirListID = {}; 
+	//DirListID = ListDir(DIR + "Stock/");
 	
-	for (int i = 0; i < 10; i++){
-		Debug(DirListID[i]);
-	}
+	//for (int i = 0; i < 10; i++){
+		//Debug(DirListID[i]);
+	//}
 	
 
 	return 0;

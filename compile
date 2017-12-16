@@ -10,7 +10,7 @@ if len(sys.argv) == 2:
 #qmake -makefile <your-project.pro> -spec linux-clang   # TO COMPILE
 #arm-linux-gnueabihf-g++
 
-
+#for fedora qmake-qt5
 
 
 if Mode == "Cross ARM":
@@ -21,8 +21,8 @@ if Mode == "Cross ARM":
 	
 	os.system("qmake -makefile Server.pro -spec " + Comp + " && make")
 else:
-	os.system("qmake -makefile zk-data.bluekenny.pro && make")
-os.remove("Makefile")
+	os.system("qmake-qt5 -makefile zk-data.bluekenny.pro && make")
+if os.path.exists("Makefile"): os.remove("Makefile")
 for each in os.listdir("./"):
 	if str(each).endswith(".o") or each == ".qmake.stash" or each == "manifest.json":
 		os.remove(each)
