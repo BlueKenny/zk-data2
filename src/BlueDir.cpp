@@ -28,21 +28,8 @@ extern void MkDir(std::string directory){ // MkDir if not exists
 		mkdir(directory.c_str(), 0777);
 		cout << "mkdir \"" << directory << "\"" << endl;
 	}
-	
-	//int status;
-	//status = mkdir(directory, S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
-
-	/*	
-	boost::filesystem::path dir(directory);
-	;
-	if(boost::filesystem::create_directory(dir){
-		cout << "ok" << endl;
-	}
-	else {
-		cout << "no" << endl;
-	}*/
 	return;
-}
+}/*
 extern std::string ListDir(std::string directory){
 	//cout << "mkdir" << endl;
 	std::string OUTPUT = {};
@@ -63,5 +50,5 @@ extern std::string ListDir(std::string directory){
 	}
 
 	return;
-}
+}*/
 

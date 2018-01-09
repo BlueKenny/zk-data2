@@ -1,7 +1,5 @@
 TEMPLATE = app
-TARGET = zk-data.bluekenny
-
-load(ubuntu-click)
+TARGET = zk-data-server
 
 QT += qml quick
 
@@ -20,31 +18,3 @@ HEADERS += \
     src/BlueInt.h \
     src/BlueString.h \
 
-CONF_FILES +=  click/zk-data.bluekenny.apparmor \
-               click/zk-data.bluekenny.desktop.in
-
-# specify where the config files are installed to
-config_files.path = /
-config_files.files += $${CONF_FILES}
-INSTALLS+=config_files
-
-# default rules for deployment.
-target.path = $${UBUNTU_CLICK_BINARY_PATH}
-INSTALLS+=target
-
-# specify the manifest file, this file is required for click
-# packaging and for the IDE to create runconfigurations
-UBUNTU_MANIFEST_FILE=click/manifest.json
-
-# specify translation domain, this must be equal with the
-# app name in the manifest file
-UBUNTU_TRANSLATION_DOMAIN="zk-data.bluekenny"
-
-# specify the source files that should be included into
-# the translation file, from those files a translation
-# qmlviewer is created in po/qmlviewer.pot, to create a
-# translation copy the qmlviewer to e.g. de.po and edit the sources
-UBUNTU_TRANSLATION_SOURCES+= \
-    $$files(*.qml,true) \
-    $$files(*.js,true) \
-    $$files(*.desktop,true)

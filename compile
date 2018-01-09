@@ -21,15 +21,15 @@ if Mode == "Cross ARM":
 	
 	os.system("qmake -makefile Server.pro -spec " + Comp + " && make")
 else:
-	os.system("qmake-qt5 -makefile zk-data.bluekenny.pro && make")
+	os.system("qmake -makefile zk-data.bluekenny.pro && make")
 if os.path.exists("Makefile"): os.remove("Makefile")
 for each in os.listdir("./"):
 	if str(each).endswith(".o") or each == ".qmake.stash" or each == "manifest.json":
 		os.remove(each)
-
+os.rename("zk-data-server", "bin/zk-data-server")
 #print("\n")
 #print("\n")
-#os.system("./Server")
+os.system("bin/zk-data-server")
 
 
 #echo "\n\n"

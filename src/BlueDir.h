@@ -5,7 +5,7 @@
 // This is the content of the .h file, which is where the declarations go
 extern bool PathExists(std::string directory);
 extern void MkDir(std::string directory);
-extern std::string ListDir(std::string directory);
+//extern std::string ListDir(std::string directory);
  
 // This is the end of the header guard
 #endif
